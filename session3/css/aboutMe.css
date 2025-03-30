@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap");
 
-.noto-serif-kr {
+body {
   font-family: "Noto Serif KR", serif;
   font-optical-sizing: auto;
   font-style: normal;
+  margin: 0;
 }
 
 main {
@@ -18,15 +19,14 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  margin-right: 7px;
+  justify-content: center;
+  gap: 10px;
 }
 
 #profile {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  margin-top: 200px;
 }
 
 .profile-name {
@@ -36,14 +36,13 @@ aside {
 }
 
 .profile-text {
-  margin-bottom: 10px;
   opacity: 0.8;
 }
 
 #background {
   width: 25%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   right: 0px;
@@ -75,6 +74,12 @@ aside {
 .fav-img {
   width: 300px;
   height: 300px;
+  border-radius: 10%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.fav-img:hover {
+  transform: translateY(-10%);
 }
 
 .fav-s-title {
@@ -93,54 +98,66 @@ aside {
 
 .division-line {
   border-top: 1px solid gray;
-  margin: 20px 5% 40px 5%;
+  margin: 20px 5% 40px;
 }
 
-.info {
+footer {
   display: flex;
   justify-content: space-evenly;
   margin-top: 20px;
 }
 
-.info-item {
+.foot-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
-.info-msg {
+.foot-msg {
   justify-content: center;
   align-items: center;
 }
 
-.info-msg:first-child {
-  margin-bottom: 10px;
+.foot-item-stacks img {
+  transition: transform 0.5s ease-in-out;
 }
 
-.info-button {
+.foot-item-stacks img:hover {
+  transform: translateY(-50%);
+}
+
+.foot-item-buttons {
   display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.foot-button {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 8px;
+  padding: 8px 5px;
   border-radius: 4px;
   font-size: 15px;
   cursor: pointer;
   border: none;
   font-family: "Noto Serif KR", serif;
+  width: 120px;
 }
 
-.info-gh {
-  margin-bottom: 10px;
+.foot-gh {
   color: #181717;
 }
 
-.info-logo {
+.foot-logo {
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
 
-.info-insta {
+.foot-insta {
   background: linear-gradient(
     to top right,
     #feda77,
@@ -152,21 +169,20 @@ aside {
   color: white;
 }
 
-.info-insta img {
+.foot-insta img {
   filter: invert(94%) sepia(6%) saturate(227%) hue-rotate(195deg)
     brightness(124%) contrast(100%);
+}
+
+.foot-tistory {
+  background-color: white;
+  border: 1px solid black;
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   #profile {
     width: 180px;
     height: 180px;
-    margin-top: 150px;
-  }
-
-  #background {
-    height: 100%;
-    position: fixed;
   }
 
   .profile-name {
@@ -182,8 +198,8 @@ aside {
   }
 
   .fav-img {
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
   }
 
   .fav-s-title {
@@ -192,16 +208,15 @@ aside {
 
   .fav-text {
     font-size: 15px;
-    width: 200px;
+    width: 210px;
     line-height: 26px;
   }
 
-  .info-button {
+  .foot-button {
     font-size: 14px;
-    padding: 6px;
   }
 
-  .info-logo {
+  .foot-logo {
     width: 18px;
     height: 18px;
   }
@@ -214,8 +229,8 @@ aside {
   }
 
   aside {
-    margin-top: 50px;
-    margin-bottom: 10px;
+    justify-content: center;
+    margin-bottom: 60px;
   }
 
   #profile {
@@ -225,6 +240,7 @@ aside {
   }
 
   #background {
+    position: absolute;
     width: 100%;
     height: 490px;
   }
@@ -241,20 +257,21 @@ aside {
   .fav-container {
     flex-direction: column;
     align-items: center;
+    gap: 30px;
   }
 
   .fav-title {
     font-size: 36px;
-    margin-bottom: 30px;
-  }
-
-  .fav-item {
-    margin-bottom: 40px;
   }
 
   .fav-img {
     width: 60%;
     height: auto;
+    transition: none;
+  }
+
+  .fav-img:hover {
+    transform: none;
   }
 
   .fav-s-title {
@@ -264,43 +281,47 @@ aside {
 
   .fav-text {
     width: 60%;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 30px;
   }
 
   .division-line {
-    margin: 0px 10% 50px 10%;
+    margin: 30px 10% 50px;
   }
 
-  .info {
+  footer {
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
 
-  .info-item {
+  .foot-item {
     width: 100%;
   }
 
-  .info-msg {
+  .foot-msg {
     font-size: 16px;
   }
 
-  .info-msg:last-child {
+  .foot-msg:last-child {
     margin-bottom: 15px;
   }
 
-  .info-button {
-    width: 200px;
-    justify-content: center;
+  .foot-item-stacks img {
+    transition: none;
   }
 
-  .info-logo {
+  .foot-item-stacks img:hover {
+    transform: none;
+  }
+
+  .foot-button {
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+
+  .foot-logo {
     width: 18px;
     height: 18px;
-  }
-
-  .info-insta {
-    margin-bottom: 50px;
   }
 }
