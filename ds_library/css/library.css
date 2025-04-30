@@ -117,6 +117,7 @@ header li:hover {
   font-size: 16px;
   box-sizing: border-box;
   padding: 10px;
+  outline: none;
 }
 
 .search-box form button {
@@ -176,7 +177,7 @@ section {
 article,
 section > img {
   width: 30rem;
-  height: 26.25rem;
+  height: auto;
   margin-bottom: 50px;
 }
 
@@ -273,7 +274,18 @@ section > img {
 
   .menu ul {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .menu li:nth-child(3),
+  .menu li:nth-child(5) {
+    display: none;
+  }
+
+  .menu li {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
   }
 
   section {
@@ -281,7 +293,10 @@ section > img {
     align-items: center;
   }
 
-  article,
+  article {
+    display: none;
+  }
+
   section > img {
     width: 80%;
     height: 100%;
