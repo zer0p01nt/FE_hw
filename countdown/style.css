@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=Stylish&display=swap");
+
+body {
+  font-family: "Stylish", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: beige;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  border: 10px solid green;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+main > div:not(.divide) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  gap: 50px;
+}
+
+.title {
+  background-color: white;
+  border: 4px solid green;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 50px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.divide {
+  border: 5px solid green;
+}
