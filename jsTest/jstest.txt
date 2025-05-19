@@ -1,0 +1,105 @@
+Q1. 2
+
+
+Q2. includes
+
+
+Q3. num % 2 === 0
+
+
+Q4. 3000
+
+
+Q5. createElement
+
+
+Q6. textContent = `${count}`
+
+
+Q7.
+const lion = () => {
+  console.log("자바스크립트 마스터를 해보자!");
+}
+
+
+Q8.
+alert(isLogin ? "환영합니다!" : "접근 권한이 없습니다.");
+
+
+Q9.
+do {
+  let answer = prompt("무엇을 말하고 싶나요?");
+} while (answer !== "끝")
+
+
+Q10.
+const number = Number(prompt("숫자를 입력하세요."));
+let add = 1;
+let result = 0;
+while (add !== number) {
+  let result += add;
+  if (add === number) {
+    alert(`1부터 해당값까지의 합은 ${result}입니다.`);
+  }
+  add++;
+}
+
+
+Q11.
+function randomNum() {
+  const num = Math.floor(Math.random() * 11);
+  return num;
+}
+let arr = [];
+for (let i = 1; i < 4; i++) {
+  const arrNum = randomNum();
+  document.write(`${i}번째 랜덤 난수 : ${arrNum}`);
+  let newArr = arr.push(arrNum);
+  if (i === 4) {
+    const total = arr.reduce((a, b) => a + b, 0);
+    document.write(`3개의 합 : ${total}`);
+    break;
+  }
+}
+
+
+Q12.
+const totalArr = [...arr1, ...arr2];
+console.log(totalArr[2]);
+const newArr = total.slice(3,7);
+console.log(newArr);
+
+
+Q13.
+const oneDay = new Date();
+oneDay.setFullYear(2025);
+oneDay.setMonth(4);
+oneDay.setDate(2);
+console.log(`${oneDay.getFullYear()}년 ${oneDay.getMonth()}월 ${oneDay.getDate()}일`);
+
+const now = new Date();
+document.write(`오늘 날짜: ${now.getFullYear()}년 ${now.getMonth()}월 ${now.getDate()}일`);
+
+const dateDiff = (now.getTime() - oneDay.getTIme()) * 1000 * 60 * 60 * 24;
+document.write(`2025년 5월 2일로부터 ${dateDiff}일이 지났습니다.`);
+
+
+Q14.
+const name = document.getElementById("name");
+let count = 1;
+function change() {
+  count++;
+  name.textContent = `likelion_${count}`;
+}
+
+Q15.
+const person = {
+  name: "lion",
+  age: 13,
+  sayHello: function() {
+    alert("안녕, " + this.age + "살 " + this.name + " !!");
+  },
+}
+person.name = prompt("이름을 입력하세요");
+person.age = prompt("나이를 입력하세요");
+person.sayHello();
