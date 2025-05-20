@@ -1,0 +1,116 @@
+(x) Q5.
+오답 : createElement
+정답 : appendChild
+createElement는 새로운 HTML 요소를 추가하는 것. ul의 자식 노드로 li를 추가하기 위해서는 appendChild를 써야 한다.
+
+
+(x) Q10.
+// 오답
+const number = Number(prompt("숫자를 입력하세요."));
+let add = 1;
+let result = 0;
+while (add !== number) {
+  let result += add; // result는 이미 while문 전에 선언되었을 뿐더러, 복합 대입 연산자는 변수 선언시 사용 불가.
+  if (add === number) {  // 입력값이 1일 때를 염두에 둔 if문인데, 그냥 while문의 조건을 <=로 하면 해결됨.
+    alert(`1부터 해당값까지의 합은 ${result}입니다.`);
+  }
+  add++;
+}
+
+// 정답
+const number = Number(prompt("숫자를 입력하세요."));
+let add = 1;
+let result = 0;
+while (add <= number) {
+  result += add;
+  add++;
+}
+alert(`1부터 해당값까지의 합은 ${result}입니다.`);
+
+
+(x) Q11.
+// 오답
+function randomNum() {
+  const num = Math.floor(Math.random() * 11);
+  return num;
+}
+let arr = [];
+for (let i = 1; i < 4; i++) { // 의도와 더 잘 맞아떨어지는 조건은 i < 4 보다는 i <= 3.
+  const arrNum = randomNum();
+  document.write(`${i}번째 랜덤 난수 : ${arrNum}`); // 보기와 똑같이 하려면 줄바꿈이 추가되어야 함.
+  let newArr = arr.push(arrNum); // 새 배열 만들 필요 없이 arr에 push만 하면 됨.
+  if (i === 4) { // 굳이 조건문과 break가 없어도 for문에 따라 자동으로 반복 종료됨.
+    const total = arr.reduce((a, b) => a + b, 0); // for문 빠져나와서 결과 도출하면 됨.
+    document.write(`3개의 합 : ${total}`);
+    break;
+  }
+}
+
+// 정답
+function randomNum() {
+  const num = Math.floor(Math.random() * 11);
+  return num;
+}
+let arr = [];
+for (let i = 1; i <= 3; i++) {
+  const arrNum = randomNum();
+  document.write(`${i}번째 랜덤 난수 : ${arrNum}<br>`);
+  arr.push(arrNum);
+}
+const total = arr.reduce((a, b) => a + b, 0);
+document.write(`3개의 합 : ${total}`);
+
+
+(x) Q12.
+// 오답
+const totalArr = [...arr1, ...arr2];
+// 합친 배열 출력하는 문장이 없었음
+console.log(totalArr[2]);
+const newArr = total.slice(3,7); // 배열 변수명도 틀렸고, slice 메서드에서 두번째 인수에는 자를 마지막 인덱스 + 1이 와야 함.
+console.log(newArr);
+
+// 정답
+const totalArr = [...arr1, ...arr2];
+console.log(totalArr);
+console.log(totalArr[2]);
+const newArr = totalArr.slice(3, 8);
+console.log(newArr);
+
+
+(△) Q13.
+// 오답
+const oneDay = new Date(); // 그냥 Date 객체를 만들 때 인자로 숫자 추가하면 됨.
+oneDay.setFullYear(2025);
+oneDay.setMonth(4); // month는 0부터 시작해서 5월을 쓰려면 4로 쓰는 게 맞음.
+oneDay.setDate(2);
+console.log(`${oneDay.getFullYear()}년 ${oneDay.getMonth()}월 ${oneDay.getDate()}일`); // 그러나 여기서는 4로 보이니까 +1 해줘야 함.
+const now = new Date();
+document.write(`오늘 날짜: ${now.getFullYear()}년 ${now.getMonth()}월 ${now.getDate()}일`); // 여기서도 +1과 줄바꿈을 추가함.
+const dateDiff = (now.getTime() - oneDay.getTIme()) * 1000 * 60 * 60 * 24; // 메서드 오타. 그리고 ms를 일로 바꾸려면 곱하는 게 아니라 나눠야 함. 정수 처리를 위해 버림함.
+document.write(`2025년 5월 2일로부터 ${dateDiff}일이 지났습니다.`);
+
+// 정답
+const oneDay = new Date(2025, 4, 2);
+console.log(`${oneDay.getFullYear()}년 ${oneDay.getMonth() + 1}월 ${oneDay.getDate()}일`);
+const now = new Date();
+document.write(`오늘 날짜: ${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일<br>`);
+const dateDiff = Math.floor((now.getTime() - oneDay.getTime()) / 1000 / 60 / 60 / 24);
+document.write(`2025년 5월 2일로부터 ${dateDiff}일이 지났습니다.`);
+
+
+(x) Q14.
+// 오답
+const name = document.getElementById("name"); // script가 head에 있으므로 여기서 호출하면 DOM 생성 전에 접근하게 됨.
+let count = 1;
+function change() {
+  count++;
+  name.textContent = `likelion_${count}`;
+}
+
+// 정답
+let count = 1;
+function change() {
+  const name = document.getElementById("name");
+  count++;
+  name.textContent = `likelion_${count}`;
+}
