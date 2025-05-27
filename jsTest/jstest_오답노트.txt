@@ -111,6 +111,10 @@ function change() {
 let count = 1;
 function change() {
   const name = document.getElementById("name");
-  count++;
-  name.textContent = `likelion_${count}`;
+  if (count === 3) {
+    name.textContent = "likelion_3";
+  } else {
+    count++;
+    name.textContent = `likelion_${count}`;
+  }
 }
