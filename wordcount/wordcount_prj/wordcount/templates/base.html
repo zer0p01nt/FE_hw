@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <!-- 페이지마다 다른 title -->
+    {% load static %}{% block style %}{% endblock %}
+    <!-- 페이지마다 다른 css -->
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+    <!-- 페이지마다 다른 body -->
+  </body>
+</html>
