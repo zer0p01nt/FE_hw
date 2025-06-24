@@ -71,7 +71,7 @@ export default function Word({ word: w }) {
         <input type='checkbox' onChange={toggleDone} checked={isDone} />
       </TableData>
       <TableData>{word.eng}</TableData>
-      <TableData>{word.kor}</TableData>
+      <TableData>{isShow && word.kor}</TableData>
       <TableData>
         <button onClick={toggleShow}>{isShow ? "뜻 숨기기" : "뜻 보기"}</button>
         <DeleteBtn className='btn_del' onClick={del}>
